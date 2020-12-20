@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.github.jengelman.gradle.plugins:shadow:6.1.0"
+
+    }
+}
+plugins{
+    id "org.jlleitschuh.gradle.ktlint" version "9.4.0"
+
+}
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = "io.ktor.server.netty.EngineMain"
+sourceSets {
+    main.kotlin.srcDirs = main.java.srcDirs = ['src']
+    main.resources.srcDirs = ['resources']
+}
+application {
+    group 'com.example'
+    version '0.0.1'
+    mainClassName = "io.ktor.server.netty.EngineMain"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+    maven { url 'https://kotlin.bintray.com/ktor' }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:$logback_version"
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-core-jvm:$ktor_version"
+    implementation "io.ktor:ktor-client-apache:$ktor_version"
+    implementation "io.ktor:ktor-gson:$ktor_version"
+    testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+    implementation("com.zaxxer:HikariCP:3.4.5")
+    implementation("mysql:mysql-connector-java:8.0.21")
+    implementation ("io.ktor:ktor-jackson:$ktor_version")
+    implementation("org.jetbrains.exposed:exposed-core:$ktor_exposed")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$ktor_exposed")
+    implementation("org.jetbrains.exposed:exposed-jodatime:$ktor_exposed")
+    implementation("io.github.cdimascio:java-dotenv:5.2.2")
+
+}
