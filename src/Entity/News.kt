@@ -9,4 +9,3 @@ object News : Table() {
     val title: Column<String> = varchar("title", 50)
     val content: Column<String> = varchar("content", 1000)
 }
-

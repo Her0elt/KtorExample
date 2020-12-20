@@ -2,7 +2,6 @@ package com.example.Repo
 
 import com.example.Entity.Player
 import com.example.Types.PlayerType
-import com.example.Types.TeamType
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert
@@ -16,13 +15,13 @@ class PlayerRepo {
         var key: UUID? = null
         ODatabase.dbQuery {
             key = (
-                    Player.insert {
-                        it[id] = UUID.randomUUID()
-                        it[name] = player.name
-                        it[number] = player.number
-                        it[team] = player.team
-                    } get Player.id
-                    )
+                Player.insert {
+                    it[id] = UUID.randomUUID()
+                    it[name] = player.name
+                    it[number] = player.number
+                    it[team] = player.team
+                } get Player.id
+                )
         }
         return key?.let { getPlayer(it) }
     }

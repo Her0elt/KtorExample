@@ -1,10 +1,7 @@
 package com.example.Route
 
-import com.example.Entity.Team
-import com.example.Repo.NewsRepo
 import com.example.Repo.TeamRepo
 import com.example.Types.TeamType
-import com.example.types.NewsType
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive

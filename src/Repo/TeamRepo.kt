@@ -16,12 +16,12 @@ class TeamRepo {
         var key: UUID? = null
         ODatabase.dbQuery {
             key = (
-                    Team.insert {
-                        it[id] = UUID.randomUUID()
-                        it[name] = team.name
-                        it[country] = team.country
-                    } get Team.id
-                    )
+                Team.insert {
+                    it[id] = UUID.randomUUID()
+                    it[name] = team.name
+                    it[country] = team.country
+                } get Team.id
+                )
         }
         return key?.let { getTeam(it) }
     }
@@ -60,6 +60,6 @@ class TeamRepo {
             id = row[Team.id],
             name = row[Team.name],
             country = row[Team.country],
-            players = ODatabase.dbQuery {  PlayerRepo().getAllPlayersInTeam(row[Team.id])}
+            players = ODatabase.dbQuery { PlayerRepo().getAllPlayersInTeam(row[Team.id]) }
         )
 }
