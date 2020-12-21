@@ -1,5 +1,5 @@
 format:
-	docker-compose run ./gradlew ktlinFormat
+	./gradlew ktlinFormat
 
 fresh:
 	make clean
@@ -10,6 +10,8 @@ clean:
 	./gradlew clean build
 
 run:
+	./gradlew build
+	docker-compose build
 	docker-compose up
 
 test:
