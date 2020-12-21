@@ -1,7 +1,7 @@
-package com.example.Repo
+package com.example.repo
 
-import com.example.Entity.News
-import com.example.types.NewsType
+import com.example.entity.News
+import com.example.type.NewsType
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert

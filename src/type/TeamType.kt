@@ -1,4 +1,4 @@
-package com.example.Types
+package com.example.type
 
 import java.util.UUID
 

@@ -1,8 +1,8 @@
-package com.example.Repo
+package com.example.repo
 
-import com.example.Entity.Team
-import com.example.Types.TeamPlayersType
-import com.example.Types.TeamType
+import com.example.entity.Team
+import com.example.type.TeamPlayersType
+import com.example.type.TeamType
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert

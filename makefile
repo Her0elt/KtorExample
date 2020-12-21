@@ -1,21 +1,16 @@
 format:
-	./gradlew ktlinFormat
+	docker-compose run ./gradlew ktlinFormat
 
 fresh:
-	make format
-	./gradlew build
+	make clean
+	docker-compose build
+	docker-compose up
 
 clean:
 	./gradlew clean build
 
 run:
-	./gradlew run
-
-auto:
-	./gradlew -t installDist
+	docker-compose up
 
 test:
-	./gradlew test
-
-up:
-	docker-compose up
+	docker-compose run ./gradlew test

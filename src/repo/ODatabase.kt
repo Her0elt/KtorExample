@@ -1,8 +1,8 @@
-package com.example.Repo
+package com.example.repo
 
-import com.example.Entity.News
-import com.example.Entity.Player
-import com.example.Entity.Team
+import com.example.entity.News
+import com.example.entity.Player
+import com.example.entity.Team
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
@@ -23,7 +23,7 @@ object ODatabase {
     private fun hikari(): HikariDataSource {
         val config = HikariConfig()
         config.driverClassName = "com.mysql.cj.jdbc.Driver"
-        config.jdbcUrl = "jdbc:mysql://localhost:3304/test" // getSystemVariable("DATABASE_URL")
+        config.jdbcUrl = "jdbc:mysql://db:3306/test" // getSystemVariable("DATABASE_URL")
         config.username = "root" // getSystemVariable("DATABASE_USERNAME")
         config.password = "secret" // getSystemVariable("DATABASE_PASSWORD")
         config.maximumPoolSize = 3

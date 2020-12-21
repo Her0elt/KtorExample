@@ -1,7 +1,7 @@
-package com.example.Repo
+package com.example.repo
 
-import com.example.Entity.Player
-import com.example.Types.PlayerType
+import com.example.entity.Player
+import com.example.type.PlayerType
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert

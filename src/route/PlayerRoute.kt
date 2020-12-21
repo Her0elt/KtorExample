@@ -1,7 +1,7 @@
-package com.example.Route
+package com.example.route
 
-import com.example.Repo.NewsRepo
-import com.example.types.NewsType
+import com.example.repo.PlayerRepo
+import com.example.type.PlayerType
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
@@ -14,25 +14,25 @@ import io.ktor.routing.route
 import java.lang.IllegalStateException
 import java.util.UUID
 
-fun Route.NewsRoute(NewsRepo: NewsRepo) {
-    route("/news") {
+fun Route.PlayerRoute(PlayerRepo: PlayerRepo) {
+    route("/player") {
         get("/") {
-            call.respond(NewsRepo.getAllNews())
+            call.respond(PlayerRepo.getAllPlayers())
         }
         get("/{id}") {
             val id: UUID = UUID.fromString(call.parameters["id"]) ?: throw IllegalStateException("Must provide id")
-            NewsRepo.getNews(id)?.let { news -> call.respond(news) }
+            PlayerRepo.getPlayer(id)?.let { news -> call.respond(news) }
         }
         post("/") {
-            val newsData = call.receive<NewsType>()
-            val newNews = NewsRepo.addNews(newsData)
-            call.respond(HttpStatusCode.Created, newNews!!)
+            val playerData = call.receive<PlayerType>()
+            val newPlayer = PlayerRepo.addPlayer(playerData)
+            call.respond(HttpStatusCode.Created, newPlayer!!)
         }
         put("/{id}") {
             val id: UUID = UUID.fromString(call.parameters["id"]) ?: throw IllegalStateException("Must provide id")
-            val updateData = call.receive<NewsType>()
-            val isUpdated = if (NewsRepo.getNews(id) != null) {
-                NewsRepo.updateNews(id, updateData)
+            val updateData = call.receive<PlayerType>()
+            val isUpdated = if (PlayerRepo.getPlayer(id) != null) {
+                PlayerRepo.updatePlayer(id, updateData)
             } else false
             if (isUpdated) call.respond(HttpStatusCode.OK)
             else call.respond(HttpStatusCode.NotFound)

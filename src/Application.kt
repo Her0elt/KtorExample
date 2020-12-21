@@ -1,12 +1,12 @@
 package com.example
 
-import com.example.Repo.NewsRepo
-import com.example.Repo.ODatabase
-import com.example.Repo.PlayerRepo
-import com.example.Repo.TeamRepo
-import com.example.Route.NewsRoute
-import com.example.Route.PlayerRoute
-import com.example.Route.TeamRoute
+import com.example.repo.NewsRepo
+import com.example.repo.ODatabase
+import com.example.repo.PlayerRepo
+import com.example.repo.TeamRepo
+import com.example.route.NewsRoute
+import com.example.route.PlayerRoute
+import com.example.route.TeamRoute
 import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.client.HttpClient

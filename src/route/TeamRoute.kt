@@ -1,7 +1,7 @@
-package com.example.Route
+package com.example.route
 
-import com.example.Repo.TeamRepo
-import com.example.Types.TeamType
+import com.example.repo.TeamRepo
+import com.example.type.TeamType
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
